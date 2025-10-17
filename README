@@ -1,0 +1,125 @@
+# 🛡️ VPN GUARD (SCG)
+
+> **Advanced Adaptive VPN Protection Framework** — integrating intelligent routing, identity management, and deception-based defense.
+
+**ترجمة:** إطار حماية VPN متقدّم يعتمد على التوجيه الذكي، وإدارة الهوية، والدفاع القائم على الخداع.
+
+---
+
+## ⚙️ Overview
+
+**VPN GUARD (SCG)** represents a new era in secure routing and adaptive defense systems. Designed for maximum performance and modularity, it merges AI-inspired logic, dynamic encryption, and behavioral deception into a lightweight yet powerful VPN core.
+
+### 🔹 Core Capabilities
+
+* Intelligent multi-layer analysis (Identity & Deception Engines)
+* Adaptive encrypted routing with randomized paths
+* Real-time health monitoring via **AegisGuardian Bot**
+* Fast async processing using **Tokio** and **SegQueue**
+* Fully modular & expandable design
+
+---
+
+## 🧩 System Architecture
+
+```
+VPN-GUARD/
+├── src/
+│   ├── main.rs
+│   ├── orchestrator.rs
+│   ├── guardian.rs
+│   ├── adaptive_router.rs
+│   ├── analysis_engines/
+│   │   ├── identity.rs
+│   │   └── deception.rs
+│   └── grpc_server.rs
+├── proto/
+│   └── vpn_guard.proto
+├── config/
+│   └── config.example.yaml
+├── docs/
+│   └── architecture.svg
+└── README.md
+```
+
+---
+
+## 🧠 Components Breakdown
+
+### 🕹️ Orchestrator
+
+The control center that manages request flow — from incoming data, through analysis, to final adaptive routing.
+
+### 👁️ AegisGuardian Bot
+
+Runs as a background async task (`tokio::spawn`) continuously monitoring system health indicators like `health_flag` and `queue_size`. It uses an `mpsc` channel for clean alert messaging.
+
+### 🔍 Analysis Engines
+
+* **IdentityManagementEngine** → Validates session fingerprints and trust scores.
+* **DeceptionEngine** → Generates defensive deception responses (honeypot-like behavior).
+
+### 🌐 AdaptiveRouter
+
+Responsible for path randomization, encryption, and final route decision. Can implement weighted or geo-aware routing.
+
+### ⚡ SegQueue
+
+A high-speed, lock-free internal queue using `crossbeam_queue::SegQueue` for multi-threaded performance.
+
+---
+
+## 🚀 Running Locally
+
+```bash
+# Start the VPN GUARD server
+cargo run --bin vpn-guard
+
+# Test via gRPC
+grpcurl -plaintext -d '{"id":"1","payload":"SGVsbG8="}' localhost:50051 vpn.Guard/Process
+```
+
+---
+
+## 🔒 Security & Reliability
+
+* Graceful shutdown via `Notify` and `tokio::select!`
+* Error handling with `Result` and `anyhow`
+* Guardian ensures resilience even under failure
+* Fail-safe design — system continues operation if one engine fails
+
+---
+
+## 📄 License & Ethical Use
+
+This project is created **for ethical and defensive cybersecurity purposes only.**
+It must **not** be used for unauthorized penetration or testing of systems.
+
+**Recommended License:** Apache-2.0 License
+
+---
+
+## 🌍 Future Enhancements
+
+* Real-time dashboard for live monitoring
+* Dockerized deployment environment
+* Advanced TLS key rotation
+* Autonomous anomaly detection
+
+---
+
+## 👤 About the Developer
+
+### ✨ **Alaa Mahmoud Mohamed**
+
+Independent Cybersecurity Tools Developer — Creator of **VPN GUARD (SCG)**
+
+📍 **Location:** Giza, Egypt
+📧 **Email:** [alaat9080@gmail.com](mailto:alaat9080@gmail.com)
+📞 **Phone:** +20 22595905
+💼 **LinkedIn:** [linkedin.com/in/alaa-mahmoud-mohamed-918aba378](https://www.linkedin.com/in/alaa-mahmoud-mohamed-918aba378)
+💻 **GitHub:** [github.com/alaat9080-svg/cyber-security-guard-pro](https://github.com/alaat9080-svg/cyber-security-guard-pro)
+
+---
+
+> *Crafted with precision, privacy, and purpose — to empower ethical cybersecurity and defend the digital realm.*
