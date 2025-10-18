@@ -1,0 +1,86 @@
+# ===============================================
+# 🛡️ VPN GUARD (SCG) — System Configuration File
+# ===============================================
+# Author: Alaa Mahmoud Mohamed
+# Version: 1.0.0
+# Description: Global configuration settings for SCG components.
+# ===============================================
+
+system:
+  name: "VPN GUARD (SCG)"
+  version: "1.0.0"
+  mode: "secure"
+  environment: "local"
+  log_level: "INFO"
+
+network:
+  default_interface: "auto"
+  connection_timeout: 10
+  retry_attempts: 3
+  encryption: "AES256"
+  protocol: "UDP"
+  port: 51820
+  mtu: 1420
+
+firewall:
+  enable: true
+  ruleset_path: "./config/firewall_rules.json"
+  auto_block_suspicious: true
+  safe_domains:
+    - "microsoft.com"
+    - "ubuntu.com"
+    - "python.org"
+
+ai_engine:
+  enable: true
+  mode: "local"
+  model_path: "./ai_models/threat_predictor_v1.pt"
+  threshold: 0.75
+  retrain_on_feedback: true
+
+logging:
+  log_dir: "./logs"
+  rotate: true
+  max_size_mb: 5
+  backup_count: 10
+  format: "[%(asctime)s] [%(levelname)s] — %(message)s"
+
+cache:
+  enable: true
+  engine: "redis"
+  host: "127.0.0.1"
+  port: 6379
+  db_index: 0
+  ttl_seconds: 3600
+
+api:
+  enable: true
+  host: "0.0.0.0"
+  port: 8080
+  auth_required: true
+  token_lifetime_minutes: 60
+  allowed_origins:
+    - "http://localhost"
+    - "https://127.0.0.1"
+
+security:
+  key_store_path: "./secure/keys/"
+  verify_integrity: true
+  sandbox_mode: true
+  block_unknown_processes: true
+  alert_on_suspicious_activity: true
+
+update:
+  auto_check: false
+  manual_update_path: "./updates/"
+  verify_signature: true
+
+ui:
+  theme: "dark"
+  language: "en"
+  refresh_interval_sec: 5
+  show_advanced_metrics: true
+
+# ===============================================
+# End of Configuration
+# ===============================================
