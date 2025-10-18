@@ -62,13 +62,12 @@ Handles encrypted routing, randomized path generation, and supports geo-aware or
 High-performance internal queue using crossbeam_queue::SegQueue for multi-threaded async processing.
 
 🧭 System Integration & Logic Design
-Organizational Structure
 
+Organizational Structure
 Code is divided into logical modules (AnalysisEngines, AdaptiveRouter, AegisGuardian, AegisOrchestrator).
 Each function and variable is documented with clear intent and role.
 
 AegisGuardian Integration
-
 Directly linked with AegisOrchestrator to monitor internal states.
 Runs independently via tokio::spawn and uses mpsc for clean alert separation.
 
@@ -89,7 +88,6 @@ Fail-safe: individual module failure does not affect system continuity.
 Scalable to new analysis modules without altering architecture.
 
 Execution
-
 main function orchestrates all components, spawns the background worker, Guardian, and gRPC server.
 Shared state managed via Arc<Mutex<T>> and Arc<AtomicCell<T>>.
 
@@ -130,9 +128,11 @@ Alaa Mahmoud Mohamed
 Independent Cybersecurity Tools Developer — Creator of VPN GUARD (SCG)
 
 Location: Giza, Egypt
+
 Email: alaat9080@gmail.com
 
 Phone: +20 22595905
+
 LinkedIn: linkedin.com/in/alaa-mahmoud-mohamed-918aba378
 
 GitHub: github.com/alaat9080-svg/cyber-security-guard-pro
@@ -161,8 +161,23 @@ Crafted with precision, privacy, and purpose — empowering ethical cybersecurit
 تصميم معياري قابل للتوسّع والتطوير
 
 🧩 الهيكل المعماري للنظام
-
-(نفس المخطط أعلاه يُستخدم لتوضيح بنية المشروع)
+VPN-GUARD/
+├── src/
+│   ├── main.rs
+│   ├── orchestrator.rs
+│   ├── guardian.rs
+│   ├── adaptive_router.rs
+│   ├── analysis_engines/
+│   │   ├── identity.rs
+│   │   └── deception.rs
+│   └── grpc_server.rs
+├── proto/
+│   └── vpn_guard.proto
+├── config/
+│   └── config.example.yaml
+├── docs/
+│   └── architecture.svg
+└── README.md
 
 🧠 مكوّنات النظام
 🕹️ Orchestrator
@@ -175,17 +190,17 @@ Crafted with precision, privacy, and purpose — empowering ethical cybersecurit
 
 🔍 محركات التحليل
 
-IdentityManagementEngine: يتحقق من بصمات الجلسات ومستوى الثقة.
+IdentityManagementEngine: يتحقق من بصمات الجلسات ومستوى الثقة
 
-DeceptionEngine: ينشئ استجابات دفاعية خادعة تحاكي أنظمة الطُعم.
+DeceptionEngine: ينشئ استجابات دفاعية خادعة تحاكي أنظمة الطُعم
 
 🌐 AdaptiveRouter
 
-مسؤول عن التوجيه المشفّر وتوليد المسارات العشوائية مع دعم للتوزيع الجغرافي أو التوزين الديناميكي.
+مسؤول عن التوجيه المشفّر وتوليد المسارات العشوائية مع دعم التوزيع الجغرافي أو التوزين الديناميكي
 
 ⚡ SegQueue
 
-قائمة انتظار داخلية سريعة وآمنة تدعم المعالجة المتعددة الخيوط.
+قائمة انتظار داخلية سريعة وآمنة تدعم المعالجة المتعددة الخيوط
 
 🧭 تكامل النظام والتصميم المنطقي
 
@@ -230,9 +245,14 @@ Guardian يحافظ على استقرار النظام ومراقبته
 علاء محمود محمد
 مطور أدوات أمن سيبراني مستقل — مبتكر مشروع VPN GUARD (SCG)
 
-📍 الموقع: الجيزة، مصر
-📧 البريد: alaat9080@gmail.com
+الموقع: الجيزة، مصر
 
-📞 الهاتف: +20 22595905
-🔗 LinkedIn: linkedin.com/in/alaa-mahmoud-mohamed-918aba378
-💻 GitHub: github.com/alaat9080-svg/cyber-security-guard-pro
+البريد: alaat9080@gmail.com
+
+الهاتف: +20 22595905
+
+LinkedIn: linkedin.com/in/alaa-mahmoud-mohamed-918aba378
+
+GitHub: github.com/alaat9080-svg/cyber-security-guard-pro
+
+مصنوع بدقة وخصوصية وهدف واضح — لتمكين الأمن السيبراني الأخلاقي وحماية العالم الرقمي.
